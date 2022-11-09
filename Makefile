@@ -16,4 +16,7 @@ ppoll-test-%: ppoll-test.c Makefile
 dump: $(addprefix dump-,$(VARIANTS))
 
 dump-%: %
-	objdump -wt $< | grep GLIBC
+	objdump -wt $< | grep 'ppoll.*@GLIBC'
+
+clean:
+	$(RM) $(VARIANTS)
